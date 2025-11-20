@@ -5,7 +5,13 @@ from datetime import datetime, timedelta
 def _today():
     return datetime.today().date()
 
-
+# helper to look up a book by ID
+def _find_book(book_id):
+    for book in library_books:
+        # compare IDs as strings (upper/lower doesn't matter)
+        if str(book["id"]).upper() == str(book_id).upper():
+            return book
+    return None
 
 # -------- Level 1 --------
 # TODO: Create a function to view all books that are currently available
@@ -122,7 +128,7 @@ if __name__ == "__main__":
         print(f'{b["id"]} | {b["title"]} by {b["author"]}')
 
     print("\n--- checkout 1 ---")
-    print(checkout_book("1"))
+    print(check_book("1"))
 
     print("\n--- return 1 ---")
     print(return_book("1"))

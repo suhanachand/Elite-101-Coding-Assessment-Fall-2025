@@ -1,0 +1,78 @@
+PSA: i just copied this over from my google docs, since i didn't planning directly on vscode
+
+
+Each book has:
+id → a unique thing like "B1"
+title → name of the book
+author → who wrote it
+genre → like Fantasy, Mystery, etc.
+available → True/False if it’s checked out
+due_date → when it’s due, or None
+checkouts → how many times it’s been borrowed
+
+quick helpers: 
+_today() → just gives today’s date
+_find_book(book_id) → looks up a book by ID so I don’t have to repeat this code everywhere
+
+1.function view_available_books():
+    make an empty list 'available'
+    for each book in library_books:
+        if book is available:
+            add "ID | Title by Author" to 'available'
+    return 'available'
+basically just looping through and printing out the free books.
+
+
+2.function search_books(term):
+    make the term lowercase
+    create empty list 'results'
+    for each book in library_books:
+        if term is in book["author"] (lowercase) or book["genre"] (lowercase):
+            add book to 'results'
+    return 'results'
+this way I don’t have to type exact capitalization, makes searching easier.
+works p much
+
+3. function check_book(book_id):
+    book = _find_book(book_id)
+    if no book found:
+        return "No book with that ID."
+    if book isn’t available:
+        return "Book is already checked out, here’s the due date."
+    # book is free, so checkout
+    due_date = today + 14 days
+    book["available"] = False
+    book["due_date"] = due_date
+    book["checkouts"] += 1
+    return "Book checked out! Due on X."
+super simple logic, just mark it and give feedback.
+done!
+
+4. a. 
+    function return_book(book_id):
+    book = _find_book(book_id)
+    if no book found:
+        return "No book with that ID."
+    if book is already available:
+        return "Book is already returned."
+    book["available"] = True
+    book["due_date"] = None
+    return "Book returned. Thanks!"
+
+    b.
+    function list_overdue_books():
+        make empty list 'overdue'
+        today = current date
+        for each book in library_books:
+            if book is checked out and has a due date:
+                if due date < today:
+                    add book to 'overdue'
+        return 'overdue'
+    just checking which books are late.
+
+    level 4 works but im getting some errors, i might need to fix my helpers
+
+
+
+
+
