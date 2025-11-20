@@ -4,6 +4,8 @@ from datetime import datetime, timedelta
 #helpers
 def _today():
     return datetime.today().date()
+    #i used this: https://www.w3schools.com/python/python_datetime.asp to understand how to use datetime,
+    #since the way i was using it before was not functioning right
 
 # helper to look up a book by ID
 def _find_book(book_id):
@@ -15,6 +17,8 @@ def _find_book(book_id):
 
 # -------- Level 1 --------
 # TODO: Create a function to view all books that are currently available
+# i used this video: https://www.youtube.com/watch?v=6x8oN6FtpLo&t=3s to understand how 
+#to access the value in the library_books.py
 def view_available_books():
     """return the book dictionary if the ID matches"""
     available = []
@@ -41,6 +45,9 @@ def search_books(term):
     return results
 #this basically allows you to search up books based on its predesigned 
 #genre or its author so its easier to locate
+#https://www.youtube.com/watch?v=daefaLgNkw0&t=6s helped reinforce the code, i mainly used
+#the video to confirm i was accessing the values correctly and just to double checl
+#since i don't usually work with values out of file
 # Search should be case-insensitive
 # Return a list of matching books
 
@@ -62,6 +69,7 @@ def check_book(book_id):
     due_date = _today() + timedelta(days=14)
     book["available"] =False
     book["due_date"] = due_date.strftime("%Y-%m-%d")
+    #used this for formatting: https://docs.python.org/3/tutorial/inputoutput.html#f-strings
     book["checkouts"] += 1
 #   - Set the due_date to 2 weeks from today
 #   - Increment the checkouts counter
@@ -69,9 +77,6 @@ def check_book(book_id):
 #   - Print a message saying it's already checked out
 
     return f'you checked out "{book["title"]}". it is due back on {book["due_date"]}.'
-
-
-
 
 # -------- Level 4 --------
 # TODO: Create a function to return a book by ID

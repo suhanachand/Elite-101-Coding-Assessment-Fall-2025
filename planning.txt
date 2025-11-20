@@ -9,10 +9,12 @@ genre → like Fantasy, Mystery, etc.
 available → True/False if it’s checked out
 due_date → when it’s due, or None
 checkouts → how many times it’s been borrowed
+  -use this to understand how to use lists in code: https://www.youtube.com/watch?v=6x8oN6FtpLo&t=3s
 
 quick helpers: 
 _today() → just gives today’s date
-_find_book(book_id) → looks up a book by ID so I don’t have to repeat this code everywhere
+_find_book(book_id) → looks up a book by ID so I don’t have to repeat this code everywhere,
+and i remember learning abt it in class
 
 1.function view_available_books():
     make an empty list 'available'
@@ -39,6 +41,8 @@ works p much
         return "No book with that ID."
     if book isn’t available:
         return "Book is already checked out, here’s the due date."
+        #lwk just use: https://docs.python.org/3/tutorial/inputoutput.html#f-strings since it tell me
+        how to make more formal and functional
     # book is free, so checkout
     due_date = today + 14 days
     book["available"] = False
