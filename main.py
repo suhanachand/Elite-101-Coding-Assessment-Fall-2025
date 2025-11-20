@@ -1,19 +1,33 @@
 from library_books import library_books
 from datetime import datetime, timedelta
 
+#helpers
+
+
+
 # -------- Level 1 --------
 # TODO: Create a function to view all books that are currently available
 def view_available_books():
     """Return the book dictionary if the ID matches"""
+    available = []
     for book in library_books:
-        if book["id"].upper() == book_id.upper():
-            return book
-    return None
+        if book["available"] is True:
+            line = f'{book["id"]} | {book["title"]} by {book["author"]}'
+            available.append(line)
+    return available
 # Output should include book ID, title, and author
 
 
 # -------- Level 2 --------
 # TODO: Create a function to search books by author OR genre
+def search_books(term):
+    """Search for your books by author or genre(don't worry about casing)"""
+    term = term.lower().strip()
+    if term == "":
+        return[]
+    
+    results =[]
+
 # Search should be case-insensitive
 # Return a list of matching books
 
