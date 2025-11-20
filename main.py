@@ -3,6 +3,12 @@ from datetime import datetime, timedelta
 
 # -------- Level 1 --------
 # TODO: Create a function to view all books that are currently available
+def view_available_books():
+    """Return the book dictionary if the ID matches"""
+    for book in library_books:
+        if book["id"].upper() == book_id.upper():
+            return book
+    return None
 # Output should include book ID, title, and author
 
 
