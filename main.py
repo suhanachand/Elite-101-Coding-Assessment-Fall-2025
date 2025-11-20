@@ -27,6 +27,10 @@ def search_books(term):
         return[]
     
     results =[]
+    for book in library_books:
+        if term in book["author"].lower() or term in book["genre"].lower():
+            results.append(book)
+    return results
 
 # Search should be case-insensitive
 # Return a list of matching books
